@@ -1,5 +1,18 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for(let i = -1 ; i < array.length; i++){
+    for(let j = i+1; j < array.length; j++){
+      // console.log(`i ${i}  j ${j}`)
+      let result = array[i] + array[j] 
+      if (result === target){
+        return true
+      }
+      if((i + 2 === array.length && result !== target)){
+        return false
+      }
+    }
+  }
+ 
 }
 
 /* 
@@ -8,6 +21,8 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+
+
 */
 
 /*
@@ -18,7 +33,22 @@ function hasTargetSum(array, target) {
 if (require.main === module) {
   // add your own custom tests in here
   console.log("Expecting: true");
-  console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
+  console.log("=>", hasTargetSum([3, 8, 12, 4, 12, 7], 15));
+
+  console.log("");
+  
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 8], 20));
+
+  console.log("");
+
+  console.log("Expecting:3 false");
+  console.log("=>", hasTargetSum([3], 3));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 5], 10));
 
   console.log("");
 
